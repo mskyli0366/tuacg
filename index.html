@@ -1,90 +1,76 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="https://fastly.jsdelivr.net/gh/mskyli0366/tuacg/1.jpg" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>随机动漫图片</title>
+    <link rel="shortcut icon" href="https://fastly.jsdelivr.net/gh/mskyli0366/tuacg/1.jpg" />
+    <title>LanMYa Random Acg Images</title>
     <style>
-        /* 页面全局样式 */
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        body, html {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             font-family: Arial, sans-serif;
             overflow: hidden;
         }
-        /* 设置全屏背景图片 */
-        body::before {
-            content: '';
-            position: absolute;
+
+        .background {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://fastly.jsdelivr.net/gh/mskyli0366/tuacg/images/lanmya&0379.webp');
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            opacity: 1;
+            transform: scale(1.1);
             z-index: -1;
         }
-        /* 中心文字容器 */
-        .content {
-            position: relative;
-            text-align: center;
-            padding: 50px;
-            border-radius: 20px;
-            backdrop-filter: blur(15px); /* 文字周围模糊效果 */
-            background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* 阴影 */
-            z-index: 1;
-        }
-        /* 滚动彩虹渐变动画 */
-        @keyframes rainbow-text {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 200% 50%;
-            }
-        }
-        h1, p {
-            font-size: 48px;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg,
-            #ff0000,  /* 红色 */
-            #ff7f00,  /* 橙色 */
-            #ffff00,  /* 黄色 */
-            #00ff00,  /* 绿色 */
-            #00ffff,  /* 天蓝色 */
-            #0000ff,  /* 蓝色 */
-            #ff69b4,  /* 粉红色 */
-            #4b0082,  /* 靛蓝 */
-            #9400d3,  /* 紫色 */
-            #ff0000   /* 红色 */);
 
-            background-size: 200%;
+        .header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff0080, #00bfff);
             -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: rainbow-text 8s linear infinite;
+            -webkit-text-fill-color: transparent;
         }
-        p {
-            font-size: 20px;
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .content h2 {
+            font-weight: bold;
+            font-size: 2em;
+            background: linear-gradient(90deg, #ff0080, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .api-link {
+            font-size: 1.5em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff0080, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section {
+            margin-bottom: 30px;
         }
         a {
-            color: inherit;
+            color: black;
             text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        /* 页脚样式 */
+       }
+
         #footer {
             position: absolute;
             bottom: 0;
@@ -92,21 +78,53 @@
             text-align: center;
             padding: 10px;
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px); /* 模糊效果 */
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>随机动漫图片</h1>
-        <p>或许在梦中，或许在星辰，时光的河流里，终将重逢。</p>
-        <p>若有来生，再牵你的手，依旧共赏花开，听风诉说。</p>
-        <p>调用地址：</p>
-        <p>https://acg.203666.xyz/img</p>
-        <h10>注意：由于本站图片全部来自于互联网收集，部分图片可能受版权保护请勿使用于商业！！！</h10>
-        <h10>图片侵权请联系删除, E-mail: <a href="mailto:lanmya@protonmail.com" target="_blank">lanmya@protonmail.com</a></h10>
-    </div>
-    <footer id="footer">
+
+<div class="background" id="background"></div>
+
+<div class="header">
+    <h1>LanMYa Random Acg Images</h1>
+</div>
+
+<div class="content section">
+    <h2>随机图片说明</h2>
+    <p>目前共收录2000+张图片</p>
+    <p>图片均为HTTPS协议，部分地区图片加载可能稍慢</p>
+    <p>注意：由于本站图片全部来自于互联网收集，部分图片可能受版权保护请勿使用于商业！！！</p>
+    <p>图片侵权请联系删除E-Mail:<a href="mailto:lanmya@outlook.jp" target="_blank">lanmya@outlook.jp</a>,请附带侵权图片链接或者图片ID和证明资料，本站会在第一时间进行处理</p>
+</div>
+<div class="content section">
+    <h3 class="api-link">接口地址:</h3>
+    <p><a href="https://acg.203666.xyz/img" target="_blank">https://acg.203666.xyz/img</a></p>
+</div>
+<script>
+    let currentImageIndex = 0;
+    const totalImages = 10000;
+
+    function updateBackground() {
+        const backgroundDiv = document.getElementById('background');
+        const newImage = new Image();
+        newImage.src = "https://acg.203666.xyz/img?" + new Date().getTime();
+        newImage.onload = () => {
+            backgroundDiv.style.opacity = 0;
+            backgroundDiv.style.transform = 'scale(1.1)';
+
+            setTimeout(() => {
+                backgroundDiv.style.backgroundImage = `url('${newImage.src}')`;
+                backgroundDiv.style.opacity = 1;
+                backgroundDiv.style.transform = 'scale(1)';
+            }, 1000);
+        };
+    }
+
+    setInterval(updateBackground, 15000);
+    updateBackground();
+</script>
+<footer id="footer">
         <h9 class="copyright">
             <script>
                 var mydate = new Date();
