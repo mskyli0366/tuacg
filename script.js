@@ -21,5 +21,5 @@ function updateBackground() {
     };
 }
 
-setInterval(updateBackground, 15000);
+setInterval(updateBackground, 8000);
 updateBackground();
