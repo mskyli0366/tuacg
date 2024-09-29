@@ -39,7 +39,7 @@
         }
 
         .content {
-            max-width: 800px;
+            max-width: 800px; /* 保持原样式 */
             margin: 20px auto;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8);
@@ -66,10 +66,11 @@
         .section {
             margin-bottom: 30px;
         }
+
         a {
             color: black;
             text-decoration: none;
-       }
+        }
 
         #footer {
             position: absolute;
@@ -79,6 +80,26 @@
             padding: 10px;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                font-size: 2em;
+            }
+
+            .content h2 {
+                font-size: 1.5em;
+            }
+
+            .api-link {
+                font-size: 1.2em;
+            }
+
+            .content {
+                padding: 15px;
+                width: 90%;
+                box-sizing: border-box;
+            }
         }
     </style>
 </head>
@@ -92,6 +113,7 @@
 
 <div class="content section">
     <h2>随机动漫图片说明</h2>
+    <p>目前共收录3000+图片</p>
     <p>图片均为HTTPS协议，部分地区图片加载可能稍慢</p>
     <p>注意：由于本站图片全部来自于互联网收集，部分图片可能受版权保护请勿使用于商业！！！</p>
     <p>图片侵权请联系删除E-Mail：<a href="mailto:lanmya@outlook.jp" target="_blank">lanmya@outlook.jp</a></p>
@@ -100,6 +122,7 @@
     <h3 class="api-link">接口地址:</h3>
     <p><a href="https://acg.203666.xyz/img" target="_blank">https://acg.203666.xyz/img</a></p>
 </div>
+
 <script>
     let currentImageIndex = 0;
     const totalImages = 10000;
@@ -123,13 +146,14 @@
     setInterval(updateBackground, 10000);
     updateBackground();
 </script>
+
 <footer id="footer">
-        <h9 class="copyright">
-            <script>
-                var mydate = new Date();
-                document.writeln("Copyright&nbsp;&copy;&nbsp;" + mydate.getFullYear() + '&nbsp;LANMYA.');
-            </script>Powered by <a href="https://workers.cloudflare.com/" target="_blank"> Cloudflare Workers</a>
-        </h9>
-    </footer>
+    <h9 class="copyright">
+        <script>
+            var mydate = new Date();
+            document.writeln("Copyright&nbsp;&copy;&nbsp;" + mydate.getFullYear() + '&nbsp;LANMYA.');
+        </script>Powered by <a href="https://workers.cloudflare.com/" target="_blank"> Cloudflare Workers</a>
+    </h9>
+</footer>
 </body>
 </html>
